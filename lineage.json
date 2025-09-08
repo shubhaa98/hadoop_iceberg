@@ -1,0 +1,189 @@
+{
+  "steps": [
+    {
+      "name": "df",
+      "output": "base_layer",
+      "columns": [
+        "customer_id",
+        "name",
+        "account_id",
+        "account_type",
+        "status",
+        "txn_id",
+        "amount",
+        "txn_type",
+        "txn_date",
+        "segment",
+        "load_date"
+      ],
+      "sources": [
+        {
+          "name": "staging_db.customer",
+          "columns": [
+            "customer_id",
+            "name",
+            "segment"
+          ]
+        },
+        {
+          "name": "staging_db.account",
+          "columns": [
+            "customer_id",
+            "account_id",
+            "account_type",
+            "status",
+            "load_date"
+          ]
+        },
+        {
+          "name": "staging_db.transaction",
+          "columns": [
+            "account_id",
+            "txn_id",
+            "amount",
+            "txn_type",
+            "txn_date"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "df_union",
+      "output": "union_layer",
+      "columns": [
+        "customer_id",
+        "name",
+        "account_id",
+        "account_type",
+        "status",
+        "txn_id",
+        "amount",
+        "txn_type",
+        "txn_date",
+        "segment",
+        "load_date"
+      ],
+      "sources": [
+        {
+          "name": "base_layer",
+          "columns": [
+            "customer_id",
+            "name",
+            "account_id",
+            "account_type",
+            "status",
+            "txn_id",
+            "amount",
+            "txn_type",
+            "txn_date",
+            "segment",
+            "load_date"
+          ]
+        },
+        {
+          "name": "core_db.archived_customer",
+          "columns": [
+            "customer_id",
+            "name"
+          ]
+        },
+        {
+          "name": "core_db.archived_account",
+          "columns": [
+            "customer_id",
+            "account_id",
+            "account_type",
+            "status"
+          ]
+        },
+        {
+          "name": "core_db.archived_transaction",
+          "columns": [
+            "account_id",
+            "txn_id",
+            "amount",
+            "txn_type",
+            "txn_date"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "df_nested",
+      "output": "nested_layer",
+      "columns": [
+        "customer_id",
+        "account_id",
+        "account_type",
+        "total_debit",
+        "total_credit",
+        "txn_count",
+        "segment_name",
+        "region",
+        "last_txn_date"
+      ],
+      "sources": [
+        {
+          "name": "union_layer",
+          "columns": [
+            "customer_id",
+            "account_id",
+            "account_type",
+            "txn_type",
+            "amount",
+            "txn_date"
+          ]
+        },
+        {
+          "name": "core_db.segmentation_rules",
+          "columns": [
+            "customer_id",
+            "segment_name"
+          ]
+        },
+        {
+          "name": "core_db.customer_region",
+          "columns": [
+            "cust_id",
+            "region"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "df_final",
+      "output": "customer_summary",
+      "columns": [
+        "customer_id",
+        "total_accounts",
+        "total_debit",
+        "total_credit",
+        "last_txn_date",
+        "segment_name",
+        "region",
+        "risk_score"
+      ],
+      "sources": [
+        {
+          "name": "nested_layer",
+          "columns": [
+            "customer_id",
+            "account_id",
+            "total_debit",
+            "total_credit",
+            "last_txn_date",
+            "segment_name",
+            "region"
+          ]
+        },
+        {
+          "name": "core_db.risk_assessment",
+          "columns": [
+            "customer_id",
+            "score"
+          ]
+        }
+      ]
+    }
+  ]
+}

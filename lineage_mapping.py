@@ -104,7 +104,12 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--script", required=True, help="Path to etl_script.py")
     ap.add_argument("--out", default="lineage")
+    ap.add_argument("--json", default="lineage.json", help="Path to save lineage JSON")
     args = ap.parse_args()
 
     lineage = extract_lineage_from_script(args.script)
+    with open(args.json, "w", encoding="utf-8") as f:
+        json.dump(lineage, f, indent=2)
+    print(f"Saved lineage JSON to {args.json}")
+    
     render_lineage(lineage, args.out)
