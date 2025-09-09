@@ -79,7 +79,7 @@ def make_tableau_node(dot, dataset, columns):
 
 
 def render_lineage(lineage: dict, out_file="lineage"):
-    dot = Digraph("Lineage", filename=out_file, format="png")
+    dot = Digraph("Lineage", filename=out_file, format="svg")
     dot.attr(rankdir="LR", splines="ortho")
 
     rendered = set()
