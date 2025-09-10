@@ -1,0 +1,63 @@
+{
+  "staging_db.customer": {
+    "customer_id": { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "name":        { "data_type": "string", "is_categorical": false, "categories": [] },
+    "segment":     { "data_type": "string", "is_categorical": true,  "categories": ["BRONZE", "SILVER", "GOLD", "PLATINUM", "UNKNOWN"] }
+  },
+  "staging_db.account": {
+    "account_id":   { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "account_type": { "data_type": "string", "is_categorical": true,  "categories": ["SAVINGS", "CHECKING", "CREDIT_CARD", "LOAN"] },
+    "status":       { "data_type": "string", "is_categorical": true,  "categories": ["ACTIVE", "INACTIVE", "CLOSED", "SUSPENDED"] },
+    "customer_id":  { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "load_date":    { "data_type": "date",   "is_categorical": false, "categories": [] }
+  },
+  "staging_db.transaction": {
+    "account_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "txn_id":     { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "amount":     { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
+    "txn_type":   { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
+    "txn_date":   { "data_type": "date",           "is_categorical": false, "categories": [] },
+    "load_date":  { "data_type": "date",           "is_categorical": false, "categories": [] }
+  },
+  "core_db.archived_customer": {
+    "customer_id": { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "name":        { "data_type": "string", "is_categorical": false, "categories": [] }
+  },
+  "core_db.archived_account": {
+    "account_id":   { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "account_type": { "data_type": "string", "is_categorical": true,  "categories": ["SAVINGS", "CHECKING", "CREDIT_CARD", "LOAN"] },
+    "status":       { "data_type": "string", "is_categorical": true,  "categories": ["ACTIVE", "INACTIVE", "CLOSED", "SUSPENDED"] },
+    "customer_id":  { "data_type": "bigint", "is_categorical": false, "categories": [] }
+  },
+  "core_db.archived_transaction": {
+    "account_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "txn_id":     { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "amount":     { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
+    "txn_type":   { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
+    "txn_date":   { "data_type": "date",           "is_categorical": false, "categories": [] }
+  },
+  "core_db.segmentation_rules": {
+    "customer_id":  { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "segment_name": { "data_type": "string", "is_categorical": true,  "categories": ["BRONZE", "SILVER", "GOLD", "PLATINUM", "UNKNOWN"] }
+  },
+  "core_db.customer_region": {
+    "cust_id":     { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "region":      { "data_type": "string", "is_categorical": true,  "categories": ["NORTHEAST", "MIDWEST", "SOUTH", "WEST", "UNKNOWN"] },
+    "active_flag": { "data_type": "string", "is_categorical": true,  "categories": ["Y", "N"] }
+  },
+  "core_db.risk_assessment": {
+    "customer_id": { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "score":       { "data_type": "double", "is_categorical": false, "categories": [] },
+    "as_of_date":  { "data_type": "date",   "is_categorical": false, "categories": [] }
+  },
+  "final_db.customer_summary": {
+    "customer_id":    { "data_type": "bigint",        "is_categorical": false, "categories": [] },
+    "total_accounts": { "data_type": "bigint",        "is_categorical": false, "categories": [] },
+    "total_debit":    { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
+    "total_credit":   { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
+    "last_txn_date":  { "data_type": "date",          "is_categorical": false, "categories": [] },
+    "segment_name":   { "data_type": "string",        "is_categorical": true,  "categories": ["BRONZE", "SILVER", "GOLD", "PLATINUM", "UNKNOWN"] },
+    "region":         { "data_type": "string",        "is_categorical": true,  "categories": ["NORTHEAST", "MIDWEST", "SOUTH", "WEST", "UNKNOWN"] },
+    "risk_score":     { "data_type": "double",        "is_categorical": false, "categories": [] }
+  }
+}
