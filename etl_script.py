@@ -29,7 +29,7 @@ df = spark.sql(f"""
         ON c.customer_id = a.customer_id
         AND a.load_date = '{load_date}'
     LEFT JOIN (
-        SELECT account_id, txn_id, amount, txn_type, txn_date
+        SELECT account_id, txn_id, amount, txn_type, txn_date, merchant_id
         FROM {stg_db}.transaction
         WHERE load_date = '{load_date}'
           AND txn_date >= date_sub(current_date(), 30)
@@ -74,7 +74,13 @@ df_nested = spark.sql(f"""
         COUNT(DISTINCT u.txn_id) as txn_count,
         seg.segment_name,
         coalesce(r.region, 'UNKNOWN') as region,
-        MAX(u.txn_date) as last_txn_date
+        MAX(u.txn_date) as last_txn_date,
+        -- New joins
+        prod.product_name,
+        prod.product_category,
+        br.branch_name,
+        br.branch_region,
+        merch.merchant_category
     FROM union_layer u
     LEFT JOIN (
         SELECT DISTINCT customer_id, segment_name
@@ -87,7 +93,26 @@ df_nested = spark.sql(f"""
         WHERE active_flag = 'Y'
     ) r
         ON u.customer_id = r.cust_id
-    GROUP BY u.customer_id, u.account_id, u.account_type, seg.segment_name, r.region
+    LEFT JOIN (
+        SELECT account_id, product_name, product_category
+        FROM {core_db}.product_dim
+    ) prod
+        ON u.account_id = prod.account_id
+    LEFT JOIN (
+        SELECT account_id, branch_name, branch_region
+        FROM {core_db}.branch_dim
+    ) br
+        ON u.account_id = br.account_id
+    LEFT JOIN (
+        SELECT merchant_id, merchant_category
+        FROM {core_db}.merchant_dim
+    ) merch
+        ON u.txn_id IS NOT NULL AND u.txn_id = merch.merchant_id
+    GROUP BY u.customer_id, u.account_id, u.account_type, 
+             seg.segment_name, r.region, 
+             prod.product_name, prod.product_category, 
+             br.branch_name, br.branch_region, 
+             merch.merchant_category
 """)
 df_nested.createOrReplaceTempView("nested_layer")
 
@@ -101,6 +126,11 @@ df_final = spark.sql(f"""
         MAX(n.last_txn_date) as last_txn_date,
         n.segment_name,
         n.region,
+        n.product_name,
+        n.product_category,
+        n.branch_name,
+        n.branch_region,
+        n.merchant_category,
         risk.risk_score
     FROM nested_layer n
     LEFT JOIN (
@@ -110,7 +140,9 @@ df_final = spark.sql(f"""
         GROUP BY customer_id
     ) risk
         ON n.customer_id = risk.customer_id
-    GROUP BY n.customer_id, n.segment_name, n.region, risk.risk_score
+    GROUP BY n.customer_id, n.segment_name, n.region, n.product_name, 
+             n.product_category, n.branch_name, n.branch_region, 
+             n.merchant_category, risk.risk_score
 """)
 
 # Step 5: Write final output

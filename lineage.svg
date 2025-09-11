@@ -15,6 +15,7 @@
 <polygon fill="white" stroke="none" points="250.25,-99.5 250.25,-371.5 330.25,-371.5 330.25,-99.5 250.25,-99.5"/>
 <polygon fill="#1f77b4" stroke="none" points="251.25,-348 251.25,-370.5 329.25,-370.5 329.25,-348 251.25,-348"/>
 <polygon fill="none" stroke="black" points="251.25,-348 251.25,-370.5 329.25,-370.5 329.25,-348 251.25,-348"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="259.5" y="-355.2" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">base_layer</text>
 <polygon fill="none" stroke="black" points="251.25,-325.5 251.25,-348 329.25,-348 329.25,-325.5 251.25,-325.5"/>
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-331.7" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -38,6 +39,31 @@
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-129.2" font-family="Times New Roman,serif" font-size="14.00">segment</text>
 <polygon fill="none" stroke="black" points="251.25,-100.5 251.25,-123 329.25,-123 329.25,-100.5 251.25,-100.5"/>
 <text xml:space="preserve" text-anchor="start" x="254.25" y="-106.7" font-family="Times New Roman,serif" font-size="14.00">load_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="259.5" y="-355.2" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">base_layer</text>
+<polygon fill="none" stroke="black" points="251.25,-325.5 251.25,-348 329.25,-348 329.25,-325.5 251.25,-325.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-331.7" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="251.25,-303 251.25,-325.5 329.25,-325.5 329.25,-303 251.25,-303"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-309.2" font-family="Times,serif" font-size="14.00">name</text>
+<polygon fill="none" stroke="black" points="251.25,-280.5 251.25,-303 329.25,-303 329.25,-280.5 251.25,-280.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-286.7" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="251.25,-258 251.25,-280.5 329.25,-280.5 329.25,-258 251.25,-258"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-264.2" font-family="Times,serif" font-size="14.00">account_type</text>
+<polygon fill="none" stroke="black" points="251.25,-235.5 251.25,-258 329.25,-258 329.25,-235.5 251.25,-235.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-241.7" font-family="Times,serif" font-size="14.00">status</text>
+<polygon fill="none" stroke="black" points="251.25,-213 251.25,-235.5 329.25,-235.5 329.25,-213 251.25,-213"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-219.2" font-family="Times,serif" font-size="14.00">txn_id</text>
+<polygon fill="none" stroke="black" points="251.25,-190.5 251.25,-213 329.25,-213 329.25,-190.5 251.25,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-196.7" font-family="Times,serif" font-size="14.00">amount</text>
+<polygon fill="none" stroke="black" points="251.25,-168 251.25,-190.5 329.25,-190.5 329.25,-168 251.25,-168"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-174.2" font-family="Times,serif" font-size="14.00">txn_type</text>
+<polygon fill="none" stroke="black" points="251.25,-145.5 251.25,-168 329.25,-168 329.25,-145.5 251.25,-145.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-151.7" font-family="Times,serif" font-size="14.00">txn_date</text>
+<polygon fill="none" stroke="black" points="251.25,-123 251.25,-145.5 329.25,-145.5 329.25,-123 251.25,-123"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-129.2" font-family="Times,serif" font-size="14.00">segment</text>
+<polygon fill="none" stroke="black" points="251.25,-100.5 251.25,-123 329.25,-123 329.25,-100.5 251.25,-100.5"/>
+<text xml:space="preserve" text-anchor="start" x="254.25" y="-106.7" font-family="Times,serif" font-size="14.00">load_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="250.25,-99.5 250.25,-371.5 330.25,-371.5 330.25,-99.5 250.25,-99.5"/>
 </g>
 <!-- union_layer -->
@@ -46,6 +72,7 @@
 <polygon fill="white" stroke="none" points="477.88,-406.5 477.88,-678.5 557.88,-678.5 557.88,-406.5 477.88,-406.5"/>
 <polygon fill="#1f77b4" stroke="none" points="478.88,-655 478.88,-677.5 556.88,-677.5 556.88,-655 478.88,-655"/>
 <polygon fill="none" stroke="black" points="478.88,-655 478.88,-677.5 556.88,-677.5 556.88,-655 478.88,-655"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="483.38" y="-662.2" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">union_layer</text>
 <polygon fill="none" stroke="black" points="478.88,-632.5 478.88,-655 556.88,-655 556.88,-632.5 478.88,-632.5"/>
 <text xml:space="preserve" text-anchor="start" x="481.88" y="-638.7" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -69,6 +96,31 @@
 <text xml:space="preserve" text-anchor="start" x="481.88" y="-436.2" font-family="Times New Roman,serif" font-size="14.00">segment</text>
 <polygon fill="none" stroke="black" points="478.88,-407.5 478.88,-430 556.88,-430 556.88,-407.5 478.88,-407.5"/>
 <text xml:space="preserve" text-anchor="start" x="481.88" y="-413.7" font-family="Times New Roman,serif" font-size="14.00">load_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="483.38" y="-662.2" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">union_layer</text>
+<polygon fill="none" stroke="black" points="478.88,-632.5 478.88,-655 556.88,-655 556.88,-632.5 478.88,-632.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-638.7" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="478.88,-610 478.88,-632.5 556.88,-632.5 556.88,-610 478.88,-610"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-616.2" font-family="Times,serif" font-size="14.00">name</text>
+<polygon fill="none" stroke="black" points="478.88,-587.5 478.88,-610 556.88,-610 556.88,-587.5 478.88,-587.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-593.7" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="478.88,-565 478.88,-587.5 556.88,-587.5 556.88,-565 478.88,-565"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-571.2" font-family="Times,serif" font-size="14.00">account_type</text>
+<polygon fill="none" stroke="black" points="478.88,-542.5 478.88,-565 556.88,-565 556.88,-542.5 478.88,-542.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-548.7" font-family="Times,serif" font-size="14.00">status</text>
+<polygon fill="none" stroke="black" points="478.88,-520 478.88,-542.5 556.88,-542.5 556.88,-520 478.88,-520"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-526.2" font-family="Times,serif" font-size="14.00">txn_id</text>
+<polygon fill="none" stroke="black" points="478.88,-497.5 478.88,-520 556.88,-520 556.88,-497.5 478.88,-497.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-503.7" font-family="Times,serif" font-size="14.00">amount</text>
+<polygon fill="none" stroke="black" points="478.88,-475 478.88,-497.5 556.88,-497.5 556.88,-475 478.88,-475"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-481.2" font-family="Times,serif" font-size="14.00">txn_type</text>
+<polygon fill="none" stroke="black" points="478.88,-452.5 478.88,-475 556.88,-475 556.88,-452.5 478.88,-452.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-458.7" font-family="Times,serif" font-size="14.00">txn_date</text>
+<polygon fill="none" stroke="black" points="478.88,-430 478.88,-452.5 556.88,-452.5 556.88,-430 478.88,-430"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-436.2" font-family="Times,serif" font-size="14.00">segment</text>
+<polygon fill="none" stroke="black" points="478.88,-407.5 478.88,-430 556.88,-430 556.88,-407.5 478.88,-407.5"/>
+<text xml:space="preserve" text-anchor="start" x="481.88" y="-413.7" font-family="Times,serif" font-size="14.00">load_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="477.88,-406.5 477.88,-678.5 557.88,-678.5 557.88,-406.5 477.88,-406.5"/>
 </g>
 <!-- base_layer&#45;&gt;union_layer -->
@@ -83,6 +135,7 @@
 <polygon fill="white" stroke="none" points="13.62,-330.5 13.62,-422.5 142.38,-422.5 142.38,-330.5 13.62,-330.5"/>
 <polygon fill="#1f77b4" stroke="none" points="14.62,-399 14.62,-421.5 141.38,-421.5 141.38,-399 14.62,-399"/>
 <polygon fill="none" stroke="black" points="14.62,-399 14.62,-421.5 141.38,-421.5 141.38,-399 14.62,-399"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="17.62" y="-406.2" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.customer</text>
 <polygon fill="none" stroke="black" points="14.62,-376.5 14.62,-399 114.75,-399 114.75,-376.5 14.62,-376.5"/>
 <text xml:space="preserve" text-anchor="start" x="17.62" y="-382.7" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -90,6 +143,15 @@
 <text xml:space="preserve" text-anchor="start" x="17.62" y="-360.2" font-family="Times New Roman,serif" font-size="14.00">name</text>
 <polygon fill="none" stroke="black" points="14.62,-331.5 14.62,-354 114.75,-354 114.75,-331.5 14.62,-331.5"/>
 <text xml:space="preserve" text-anchor="start" x="17.62" y="-337.7" font-family="Times New Roman,serif" font-size="14.00">segment</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="17.62" y="-406.2" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.customer</text>
+<polygon fill="none" stroke="black" points="14.62,-376.5 14.62,-399 114.75,-399 114.75,-376.5 14.62,-376.5"/>
+<text xml:space="preserve" text-anchor="start" x="17.62" y="-382.7" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="14.62,-354 14.62,-376.5 114.75,-376.5 114.75,-354 14.62,-354"/>
+<text xml:space="preserve" text-anchor="start" x="17.62" y="-360.2" font-family="Times,serif" font-size="14.00">name</text>
+<polygon fill="none" stroke="black" points="14.62,-331.5 14.62,-354 114.75,-354 114.75,-331.5 14.62,-331.5"/>
+<text xml:space="preserve" text-anchor="start" x="17.62" y="-337.7" font-family="Times,serif" font-size="14.00">segment</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="13.62,-330.5 13.62,-422.5 142.38,-422.5 142.38,-330.5 13.62,-330.5"/>
 </g>
 <!-- staging_db.customer&#45;&gt;base_layer -->
@@ -104,6 +166,7 @@
 <polygon fill="white" stroke="none" points="18.12,-167 18.12,-304 137.88,-304 137.88,-167 18.12,-167"/>
 <polygon fill="#1f77b4" stroke="none" points="19.12,-280.5 19.12,-303 136.88,-303 136.88,-280.5 19.12,-280.5"/>
 <polygon fill="none" stroke="black" points="19.12,-280.5 19.12,-303 136.88,-303 136.88,-280.5 19.12,-280.5"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="22.12" y="-287.7" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.account</text>
 <polygon fill="none" stroke="black" points="19.12,-258 19.12,-280.5 117,-280.5 117,-258 19.12,-258"/>
 <text xml:space="preserve" text-anchor="start" x="22.12" y="-264.2" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -115,6 +178,19 @@
 <text xml:space="preserve" text-anchor="start" x="22.12" y="-196.7" font-family="Times New Roman,serif" font-size="14.00">status</text>
 <polygon fill="none" stroke="black" points="19.12,-168 19.12,-190.5 117,-190.5 117,-168 19.12,-168"/>
 <text xml:space="preserve" text-anchor="start" x="22.12" y="-174.2" font-family="Times New Roman,serif" font-size="14.00">load_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-287.7" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.account</text>
+<polygon fill="none" stroke="black" points="19.12,-258 19.12,-280.5 117,-280.5 117,-258 19.12,-258"/>
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-264.2" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="19.12,-235.5 19.12,-258 117,-258 117,-235.5 19.12,-235.5"/>
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-241.7" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="19.12,-213 19.12,-235.5 117,-235.5 117,-213 19.12,-213"/>
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-219.2" font-family="Times,serif" font-size="14.00">account_type</text>
+<polygon fill="none" stroke="black" points="19.12,-190.5 19.12,-213 117,-213 117,-190.5 19.12,-190.5"/>
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-196.7" font-family="Times,serif" font-size="14.00">status</text>
+<polygon fill="none" stroke="black" points="19.12,-168 19.12,-190.5 117,-190.5 117,-168 19.12,-168"/>
+<text xml:space="preserve" text-anchor="start" x="22.12" y="-174.2" font-family="Times,serif" font-size="14.00">load_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="18.12,-167 18.12,-304 137.88,-304 137.88,-167 18.12,-167"/>
 </g>
 <!-- staging_db.account&#45;&gt;base_layer -->
@@ -129,6 +205,7 @@
 <polygon fill="white" stroke="none" points="8,-4 8,-141 148,-141 148,-4 8,-4"/>
 <polygon fill="#1f77b4" stroke="none" points="9,-117.5 9,-140 147,-140 147,-117.5 9,-117.5"/>
 <polygon fill="none" stroke="black" points="9,-117.5 9,-140 147,-140 147,-117.5 9,-117.5"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="12" y="-124.7" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.transaction</text>
 <polygon fill="none" stroke="black" points="9,-95 9,-117.5 110.62,-117.5 110.62,-95 9,-95"/>
 <text xml:space="preserve" text-anchor="start" x="12" y="-101.2" font-family="Times New Roman,serif" font-size="14.00">account_id</text>
@@ -140,6 +217,19 @@
 <text xml:space="preserve" text-anchor="start" x="12" y="-33.7" font-family="Times New Roman,serif" font-size="14.00">txn_type</text>
 <polygon fill="none" stroke="black" points="9,-5 9,-27.5 110.62,-27.5 110.62,-5 9,-5"/>
 <text xml:space="preserve" text-anchor="start" x="12" y="-11.2" font-family="Times New Roman,serif" font-size="14.00">txn_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="12" y="-124.7" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">staging_db.transaction</text>
+<polygon fill="none" stroke="black" points="9,-95 9,-117.5 110.62,-117.5 110.62,-95 9,-95"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-101.2" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="9,-72.5 9,-95 110.62,-95 110.62,-72.5 9,-72.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-78.7" font-family="Times,serif" font-size="14.00">txn_id</text>
+<polygon fill="none" stroke="black" points="9,-50 9,-72.5 110.62,-72.5 110.62,-50 9,-50"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-56.2" font-family="Times,serif" font-size="14.00">amount</text>
+<polygon fill="none" stroke="black" points="9,-27.5 9,-50 110.62,-50 110.62,-27.5 9,-27.5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-33.7" font-family="Times,serif" font-size="14.00">txn_type</text>
+<polygon fill="none" stroke="black" points="9,-5 9,-27.5 110.62,-27.5 110.62,-5 9,-5"/>
+<text xml:space="preserve" text-anchor="start" x="12" y="-11.2" font-family="Times,serif" font-size="14.00">txn_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="8,-4 8,-141 148,-141 148,-4 8,-4"/>
 </g>
 <!-- staging_db.transaction&#45;&gt;base_layer -->
@@ -154,6 +244,7 @@
 <polygon fill="white" stroke="none" points="685.62,-626 685.62,-853 776.12,-853 776.12,-626 685.62,-626"/>
 <polygon fill="#1f77b4" stroke="none" points="686.62,-829.5 686.62,-852 775.12,-852 775.12,-829.5 686.62,-829.5"/>
 <polygon fill="none" stroke="black" points="686.62,-829.5 686.62,-852 775.12,-852 775.12,-829.5 686.62,-829.5"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="694.5" y="-836.7" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">nested_layer</text>
 <polygon fill="none" stroke="black" points="686.62,-807 686.62,-829.5 775.12,-829.5 775.12,-807 686.62,-807"/>
 <text xml:space="preserve" text-anchor="start" x="689.62" y="-813.2" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -173,6 +264,27 @@
 <text xml:space="preserve" text-anchor="start" x="689.62" y="-655.7" font-family="Times New Roman,serif" font-size="14.00">region</text>
 <polygon fill="none" stroke="black" points="686.62,-627 686.62,-649.5 775.12,-649.5 775.12,-627 686.62,-627"/>
 <text xml:space="preserve" text-anchor="start" x="689.62" y="-633.2" font-family="Times New Roman,serif" font-size="14.00">last_txn_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="694.5" y="-836.7" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">nested_layer</text>
+<polygon fill="none" stroke="black" points="686.62,-807 686.62,-829.5 775.12,-829.5 775.12,-807 686.62,-807"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-813.2" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="686.62,-784.5 686.62,-807 775.12,-807 775.12,-784.5 686.62,-784.5"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-790.7" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="686.62,-762 686.62,-784.5 775.12,-784.5 775.12,-762 686.62,-762"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-768.2" font-family="Times,serif" font-size="14.00">account_type</text>
+<polygon fill="none" stroke="black" points="686.62,-739.5 686.62,-762 775.12,-762 775.12,-739.5 686.62,-739.5"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-745.7" font-family="Times,serif" font-size="14.00">total_debit</text>
+<polygon fill="none" stroke="black" points="686.62,-717 686.62,-739.5 775.12,-739.5 775.12,-717 686.62,-717"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-723.2" font-family="Times,serif" font-size="14.00">total_credit</text>
+<polygon fill="none" stroke="black" points="686.62,-694.5 686.62,-717 775.12,-717 775.12,-694.5 686.62,-694.5"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-700.7" font-family="Times,serif" font-size="14.00">txn_count</text>
+<polygon fill="none" stroke="black" points="686.62,-672 686.62,-694.5 775.12,-694.5 775.12,-672 686.62,-672"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-678.2" font-family="Times,serif" font-size="14.00">segment_name</text>
+<polygon fill="none" stroke="black" points="686.62,-649.5 686.62,-672 775.12,-672 775.12,-649.5 686.62,-649.5"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-655.7" font-family="Times,serif" font-size="14.00">region</text>
+<polygon fill="none" stroke="black" points="686.62,-627 686.62,-649.5 775.12,-649.5 775.12,-627 686.62,-627"/>
+<text xml:space="preserve" text-anchor="start" x="689.62" y="-633.2" font-family="Times,serif" font-size="14.00">last_txn_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="685.62,-626 685.62,-853 776.12,-853 776.12,-626 685.62,-626"/>
 </g>
 <!-- union_layer&#45;&gt;nested_layer -->
@@ -187,11 +299,19 @@
 <polygon fill="white" stroke="none" points="205.62,-701.75 205.62,-771.25 374.88,-771.25 374.88,-701.75 205.62,-701.75"/>
 <polygon fill="#1f77b4" stroke="none" points="206.62,-747.75 206.62,-770.25 373.88,-770.25 373.88,-747.75 206.62,-747.75"/>
 <polygon fill="none" stroke="black" points="206.62,-747.75 206.62,-770.25 373.88,-770.25 373.88,-747.75 206.62,-747.75"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="209.62" y="-754.95" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_customer</text>
 <polygon fill="none" stroke="black" points="206.62,-725.25 206.62,-747.75 327,-747.75 327,-725.25 206.62,-725.25"/>
 <text xml:space="preserve" text-anchor="start" x="209.62" y="-731.45" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
 <polygon fill="none" stroke="black" points="206.62,-702.75 206.62,-725.25 327,-725.25 327,-702.75 206.62,-702.75"/>
 <text xml:space="preserve" text-anchor="start" x="209.62" y="-708.95" font-family="Times New Roman,serif" font-size="14.00">name</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="209.62" y="-754.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_customer</text>
+<polygon fill="none" stroke="black" points="206.62,-725.25 206.62,-747.75 327,-747.75 327,-725.25 206.62,-725.25"/>
+<text xml:space="preserve" text-anchor="start" x="209.62" y="-731.45" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="206.62,-702.75 206.62,-725.25 327,-725.25 327,-702.75 206.62,-702.75"/>
+<text xml:space="preserve" text-anchor="start" x="209.62" y="-708.95" font-family="Times,serif" font-size="14.00">name</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="205.62,-701.75 205.62,-771.25 374.88,-771.25 374.88,-701.75 205.62,-701.75"/>
 </g>
 <!-- core_db.archived_customer&#45;&gt;union_layer -->
@@ -206,6 +326,7 @@
 <polygon fill="white" stroke="none" points="210.12,-561.25 210.12,-675.75 370.38,-675.75 370.38,-561.25 210.12,-561.25"/>
 <polygon fill="#1f77b4" stroke="none" points="211.12,-652.25 211.12,-674.75 369.38,-674.75 369.38,-652.25 211.12,-652.25"/>
 <polygon fill="none" stroke="black" points="211.12,-652.25 211.12,-674.75 369.38,-674.75 369.38,-652.25 211.12,-652.25"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="214.12" y="-659.45" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_account</text>
 <polygon fill="none" stroke="black" points="211.12,-629.75 211.12,-652.25 329.25,-652.25 329.25,-629.75 211.12,-629.75"/>
 <text xml:space="preserve" text-anchor="start" x="214.12" y="-635.95" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -215,6 +336,17 @@
 <text xml:space="preserve" text-anchor="start" x="214.12" y="-590.95" font-family="Times New Roman,serif" font-size="14.00">account_type</text>
 <polygon fill="none" stroke="black" points="211.12,-562.25 211.12,-584.75 329.25,-584.75 329.25,-562.25 211.12,-562.25"/>
 <text xml:space="preserve" text-anchor="start" x="214.12" y="-568.45" font-family="Times New Roman,serif" font-size="14.00">status</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="214.12" y="-659.45" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_account</text>
+<polygon fill="none" stroke="black" points="211.12,-629.75 211.12,-652.25 329.25,-652.25 329.25,-629.75 211.12,-629.75"/>
+<text xml:space="preserve" text-anchor="start" x="214.12" y="-635.95" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="211.12,-607.25 211.12,-629.75 329.25,-629.75 329.25,-607.25 211.12,-607.25"/>
+<text xml:space="preserve" text-anchor="start" x="214.12" y="-613.45" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="211.12,-584.75 211.12,-607.25 329.25,-607.25 329.25,-584.75 211.12,-584.75"/>
+<text xml:space="preserve" text-anchor="start" x="214.12" y="-590.95" font-family="Times,serif" font-size="14.00">account_type</text>
+<polygon fill="none" stroke="black" points="211.12,-562.25 211.12,-584.75 329.25,-584.75 329.25,-562.25 211.12,-562.25"/>
+<text xml:space="preserve" text-anchor="start" x="214.12" y="-568.45" font-family="Times,serif" font-size="14.00">status</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="210.12,-561.25 210.12,-675.75 370.38,-675.75 370.38,-561.25 210.12,-561.25"/>
 </g>
 <!-- core_db.archived_account&#45;&gt;union_layer -->
@@ -229,6 +361,7 @@
 <polygon fill="white" stroke="none" points="200,-398 200,-535 380.5,-535 380.5,-398 200,-398"/>
 <polygon fill="#1f77b4" stroke="none" points="201,-511.5 201,-534 379.5,-534 379.5,-511.5 201,-511.5"/>
 <polygon fill="none" stroke="black" points="201,-511.5 201,-534 379.5,-534 379.5,-511.5 201,-511.5"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="204" y="-518.7" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_transaction</text>
 <polygon fill="none" stroke="black" points="201,-489 201,-511.5 322.88,-511.5 322.88,-489 201,-489"/>
 <text xml:space="preserve" text-anchor="start" x="204" y="-495.2" font-family="Times New Roman,serif" font-size="14.00">account_id</text>
@@ -240,6 +373,19 @@
 <text xml:space="preserve" text-anchor="start" x="204" y="-427.7" font-family="Times New Roman,serif" font-size="14.00">txn_type</text>
 <polygon fill="none" stroke="black" points="201,-399 201,-421.5 322.88,-421.5 322.88,-399 201,-399"/>
 <text xml:space="preserve" text-anchor="start" x="204" y="-405.2" font-family="Times New Roman,serif" font-size="14.00">txn_date</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="204" y="-518.7" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.archived_transaction</text>
+<polygon fill="none" stroke="black" points="201,-489 201,-511.5 322.88,-511.5 322.88,-489 201,-489"/>
+<text xml:space="preserve" text-anchor="start" x="204" y="-495.2" font-family="Times,serif" font-size="14.00">account_id</text>
+<polygon fill="none" stroke="black" points="201,-466.5 201,-489 322.88,-489 322.88,-466.5 201,-466.5"/>
+<text xml:space="preserve" text-anchor="start" x="204" y="-472.7" font-family="Times,serif" font-size="14.00">txn_id</text>
+<polygon fill="none" stroke="black" points="201,-444 201,-466.5 322.88,-466.5 322.88,-444 201,-444"/>
+<text xml:space="preserve" text-anchor="start" x="204" y="-450.2" font-family="Times,serif" font-size="14.00">amount</text>
+<polygon fill="none" stroke="black" points="201,-421.5 201,-444 322.88,-444 322.88,-421.5 201,-421.5"/>
+<text xml:space="preserve" text-anchor="start" x="204" y="-427.7" font-family="Times,serif" font-size="14.00">txn_type</text>
+<polygon fill="none" stroke="black" points="201,-399 201,-421.5 322.88,-421.5 322.88,-399 201,-399"/>
+<text xml:space="preserve" text-anchor="start" x="204" y="-405.2" font-family="Times,serif" font-size="14.00">txn_date</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="200,-398 200,-535 380.5,-535 380.5,-398 200,-398"/>
 </g>
 <!-- core_db.archived_transaction&#45;&gt;union_layer -->
@@ -254,6 +400,7 @@
 <polygon fill="white" stroke="none" points="858.5,-724.25 858.5,-928.75 983.5,-928.75 983.5,-724.25 858.5,-724.25"/>
 <polygon fill="#1f77b4" stroke="none" points="859.5,-905.25 859.5,-927.75 982.5,-927.75 982.5,-905.25 859.5,-905.25"/>
 <polygon fill="none" stroke="black" points="859.5,-905.25 859.5,-927.75 982.5,-927.75 982.5,-905.25 859.5,-905.25"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="862.5" y="-912.45" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">customer_summary</text>
 <polygon fill="none" stroke="black" points="859.5,-882.75 859.5,-905.25 965.25,-905.25 965.25,-882.75 859.5,-882.75"/>
 <text xml:space="preserve" text-anchor="start" x="862.5" y="-888.95" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
@@ -271,6 +418,25 @@
 <text xml:space="preserve" text-anchor="start" x="862.5" y="-753.95" font-family="Times New Roman,serif" font-size="14.00">region</text>
 <polygon fill="none" stroke="black" points="859.5,-725.25 859.5,-747.75 965.25,-747.75 965.25,-725.25 859.5,-725.25"/>
 <text xml:space="preserve" text-anchor="start" x="862.5" y="-731.45" font-family="Times New Roman,serif" font-size="14.00">risk_score</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-912.45" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">customer_summary</text>
+<polygon fill="none" stroke="black" points="859.5,-882.75 859.5,-905.25 965.25,-905.25 965.25,-882.75 859.5,-882.75"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-888.95" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="859.5,-860.25 859.5,-882.75 965.25,-882.75 965.25,-860.25 859.5,-860.25"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-866.45" font-family="Times,serif" font-size="14.00">total_accounts</text>
+<polygon fill="none" stroke="black" points="859.5,-837.75 859.5,-860.25 965.25,-860.25 965.25,-837.75 859.5,-837.75"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-843.95" font-family="Times,serif" font-size="14.00">total_debit</text>
+<polygon fill="none" stroke="black" points="859.5,-815.25 859.5,-837.75 965.25,-837.75 965.25,-815.25 859.5,-815.25"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-821.45" font-family="Times,serif" font-size="14.00">total_credit</text>
+<polygon fill="none" stroke="black" points="859.5,-792.75 859.5,-815.25 965.25,-815.25 965.25,-792.75 859.5,-792.75"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-798.95" font-family="Times,serif" font-size="14.00">last_txn_date</text>
+<polygon fill="none" stroke="black" points="859.5,-770.25 859.5,-792.75 965.25,-792.75 965.25,-770.25 859.5,-770.25"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-776.45" font-family="Times,serif" font-size="14.00">segment_name</text>
+<polygon fill="none" stroke="black" points="859.5,-747.75 859.5,-770.25 965.25,-770.25 965.25,-747.75 859.5,-747.75"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-753.95" font-family="Times,serif" font-size="14.00">region</text>
+<polygon fill="none" stroke="black" points="859.5,-725.25 859.5,-747.75 965.25,-747.75 965.25,-725.25 859.5,-725.25"/>
+<text xml:space="preserve" text-anchor="start" x="862.5" y="-731.45" font-family="Times,serif" font-size="14.00">risk_score</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="858.5,-724.25 858.5,-928.75 983.5,-928.75 983.5,-724.25 858.5,-724.25"/>
 </g>
 <!-- nested_layer&#45;&gt;customer_summary -->
@@ -285,11 +451,19 @@
 <polygon fill="white" stroke="none" points="432.5,-800.75 432.5,-870.25 603.25,-870.25 603.25,-800.75 432.5,-800.75"/>
 <polygon fill="#1f77b4" stroke="none" points="433.5,-846.75 433.5,-869.25 602.25,-869.25 602.25,-846.75 433.5,-846.75"/>
 <polygon fill="none" stroke="black" points="433.5,-846.75 433.5,-869.25 602.25,-869.25 602.25,-846.75 433.5,-846.75"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="436.5" y="-853.95" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.segmentation_rules</text>
 <polygon fill="none" stroke="black" points="433.5,-824.25 433.5,-846.75 562.12,-846.75 562.12,-824.25 433.5,-824.25"/>
 <text xml:space="preserve" text-anchor="start" x="436.5" y="-830.45" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
 <polygon fill="none" stroke="black" points="433.5,-801.75 433.5,-824.25 562.12,-824.25 562.12,-801.75 433.5,-801.75"/>
 <text xml:space="preserve" text-anchor="start" x="436.5" y="-807.95" font-family="Times New Roman,serif" font-size="14.00">segment_name</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="436.5" y="-853.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.segmentation_rules</text>
+<polygon fill="none" stroke="black" points="433.5,-824.25 433.5,-846.75 562.12,-846.75 562.12,-824.25 433.5,-824.25"/>
+<text xml:space="preserve" text-anchor="start" x="436.5" y="-830.45" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="433.5,-801.75 433.5,-824.25 562.12,-824.25 562.12,-801.75 433.5,-801.75"/>
+<text xml:space="preserve" text-anchor="start" x="436.5" y="-807.95" font-family="Times,serif" font-size="14.00">segment_name</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="432.5,-800.75 432.5,-870.25 603.25,-870.25 603.25,-800.75 432.5,-800.75"/>
 </g>
 <!-- core_db.segmentation_rules&#45;&gt;nested_layer -->
@@ -304,11 +478,19 @@
 <polygon fill="white" stroke="none" points="440,-704.75 440,-774.25 595.75,-774.25 595.75,-704.75 440,-704.75"/>
 <polygon fill="#1f77b4" stroke="none" points="441,-750.75 441,-773.25 594.75,-773.25 594.75,-750.75 441,-750.75"/>
 <polygon fill="none" stroke="black" points="441,-750.75 441,-773.25 594.75,-773.25 594.75,-750.75 441,-750.75"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="444" y="-757.95" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.customer_region</text>
 <polygon fill="none" stroke="black" points="441,-728.25 441,-750.75 540.38,-750.75 540.38,-728.25 441,-728.25"/>
 <text xml:space="preserve" text-anchor="start" x="444" y="-734.45" font-family="Times New Roman,serif" font-size="14.00">cust_id</text>
 <polygon fill="none" stroke="black" points="441,-705.75 441,-728.25 540.38,-728.25 540.38,-705.75 441,-705.75"/>
 <text xml:space="preserve" text-anchor="start" x="444" y="-711.95" font-family="Times New Roman,serif" font-size="14.00">region</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="444" y="-757.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.customer_region</text>
+<polygon fill="none" stroke="black" points="441,-728.25 441,-750.75 540.38,-750.75 540.38,-728.25 441,-728.25"/>
+<text xml:space="preserve" text-anchor="start" x="444" y="-734.45" font-family="Times,serif" font-size="14.00">cust_id</text>
+<polygon fill="none" stroke="black" points="441,-705.75 441,-728.25 540.38,-728.25 540.38,-705.75 441,-705.75"/>
+<text xml:space="preserve" text-anchor="start" x="444" y="-711.95" font-family="Times,serif" font-size="14.00">region</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="440,-704.75 440,-774.25 595.75,-774.25 595.75,-704.75 440,-704.75"/>
 </g>
 <!-- core_db.customer_region&#45;&gt;nested_layer -->
@@ -323,11 +505,19 @@
 <polygon fill="white" stroke="none" points="655.25,-878.75 655.25,-948.25 806.5,-948.25 806.5,-878.75 655.25,-878.75"/>
 <polygon fill="#1f77b4" stroke="none" points="656.25,-924.75 656.25,-947.25 805.5,-947.25 805.5,-924.75 656.25,-924.75"/>
 <polygon fill="none" stroke="black" points="656.25,-924.75 656.25,-947.25 805.5,-947.25 805.5,-924.75 656.25,-924.75"/>
+<<<<<<< HEAD
 <text xml:space="preserve" text-anchor="start" x="659.25" y="-931.95" font-family="Times New Roman,serif" font-weight="bold" font-size="14.00" fill="white">core_db.risk_assessment</text>
 <polygon fill="none" stroke="black" points="656.25,-902.25 656.25,-924.75 767.62,-924.75 767.62,-902.25 656.25,-902.25"/>
 <text xml:space="preserve" text-anchor="start" x="659.25" y="-908.45" font-family="Times New Roman,serif" font-size="14.00">customer_id</text>
 <polygon fill="none" stroke="black" points="656.25,-879.75 656.25,-902.25 767.62,-902.25 767.62,-879.75 656.25,-879.75"/>
 <text xml:space="preserve" text-anchor="start" x="659.25" y="-885.95" font-family="Times New Roman,serif" font-size="14.00">score</text>
+=======
+<text xml:space="preserve" text-anchor="start" x="659.25" y="-931.95" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="white">core_db.risk_assessment</text>
+<polygon fill="none" stroke="black" points="656.25,-902.25 656.25,-924.75 767.62,-924.75 767.62,-902.25 656.25,-902.25"/>
+<text xml:space="preserve" text-anchor="start" x="659.25" y="-908.45" font-family="Times,serif" font-size="14.00">customer_id</text>
+<polygon fill="none" stroke="black" points="656.25,-879.75 656.25,-902.25 767.62,-902.25 767.62,-879.75 656.25,-879.75"/>
+<text xml:space="preserve" text-anchor="start" x="659.25" y="-885.95" font-family="Times,serif" font-size="14.00">score</text>
+>>>>>>> d6c99e8b1da38f941301d09166210b352a43de98
 <polygon fill="none" stroke="black" points="655.25,-878.75 655.25,-948.25 806.5,-948.25 806.5,-878.75 655.25,-878.75"/>
 </g>
 <!-- core_db.risk_assessment&#45;&gt;customer_summary -->
