@@ -5,6 +5,7 @@ Extracts ETL mappings using OpenAI and enriches them with catalog metadata.
 """
 
 import os
+import re
 import json
 import csv
 import argparse
@@ -56,7 +57,8 @@ Rules:
 - Only extract mappings for the final output table written via `saveAsTable` (e.g., final_db.customer_summary).
 - Ignore intermediate views like base_layer, union_layer, nested_layer unless they directly contribute to the final output.
 - For each target column, identify the source table and column(s) it is derived from.
-- If a column is derived using expressions (e.g., CASE, COALESCE, SUM), include the exact SQL logic in `transformation_logic`.
+- If a column is derived using expressions (e.g., CASE, COALESCE, SUM), include the exact SQL logic in `transformation_logic`
+- remove aliases of tables in the column names while extracting tranformation logic. Just include the logic (e.g. if there is SUM(x.total) then include only sum(total))
 - Fully resolve table names using variables (e.g., stg_db.customer → staging_db.customer).
 - Output MUST match the JSON schema (no extra fields).
 
@@ -65,6 +67,16 @@ ETL Script:
 {etl_script}
 ----------------
 """
+
+def remove_aliases(expression: str) -> str:
+    # Removes patterns like x.id → id, y.total → total
+    return re.sub(r'\b\w+\.(\w+)\b', r'\1', expression)
+
+def clean_transformation_logic(mappings: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    for m in mappings:
+        if m.get("transformation_logic"):
+            m["transformation_logic"] = remove_aliases(m["transformation_logic"])
+    return mappings
 
 def read_text(path: str) -> str:
     with open(path, "r", encoding="utf-8") as f:
@@ -100,6 +112,7 @@ def enrich_with_catalog(mappings: List[Dict[str, Any]], catalog: Dict[str, Dict[
         m["data_type"] = meta.get("data_type", "")
         m["is_categorical"] = meta.get("is_categorical", False)
         m["categories"] = meta.get("categories", [])
+
     return mappings
 
 def extract_mappings_with_openai(etl_script: str, model: str = DEFAULT_MODEL) -> Dict[str, Any]:
@@ -140,6 +153,7 @@ def main():
     catalog = json.load(open(CATALOG_PATH, "r", encoding="utf-8"))
     data = extract_mappings_with_openai(etl_script, model=args.model)
     enriched = enrich_with_catalog(data["mappings"], catalog)
+    enriched = clean_transformation_logic(enriched)
     save_json({"mappings": enriched}, args.json)
     save_csv(enriched, args.csv)
     print(f" Extraction and enrichment complete. Rows: {len(enriched)}")

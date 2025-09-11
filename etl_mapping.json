@@ -15,32 +15,17 @@
       "source_column": "account_id",
       "target_table": "final_db.customer_summary",
       "target_column": "total_accounts",
-      "transformation_logic": "COUNT(DISTINCT n.account_id)",
+      "transformation_logic": "COUNT(DISTINCT account_id)",
       "data_type": "bigint",
       "is_categorical": false,
       "categories": []
-    },
-    {
-      "source_table": "staging_db.account",
-      "source_column": "account_type",
-      "target_table": "final_db.customer_summary",
-      "target_column": "account_type",
-      "transformation_logic": "Direct mapping",
-      "data_type": "string",
-      "is_categorical": true,
-      "categories": [
-        "SAVINGS",
-        "CHECKING",
-        "CREDIT_CARD",
-        "LOAN"
-      ]
     },
     {
       "source_table": "staging_db.transaction",
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_debit",
-      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'DEBIT' THEN u.amount ELSE 0 END)",
+      "transformation_logic": "SUM(CASE WHEN txn_type = 'DEBIT' THEN amount ELSE 0 END)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -50,7 +35,7 @@
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_credit",
-      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'CREDIT' THEN u.amount ELSE 0 END)",
+      "transformation_logic": "SUM(CASE WHEN txn_type = 'CREDIT' THEN amount ELSE 0 END)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -60,7 +45,7 @@
       "source_column": "txn_date",
       "target_table": "final_db.customer_summary",
       "target_column": "last_txn_date",
-      "transformation_logic": "MAX(n.last_txn_date)",
+      "transformation_logic": "MAX(last_txn_date)",
       "data_type": "date",
       "is_categorical": false,
       "categories": []
@@ -86,7 +71,7 @@
       "source_column": "region",
       "target_table": "final_db.customer_summary",
       "target_column": "region",
-      "transformation_logic": "coalesce(r.region, 'UNKNOWN')",
+      "transformation_logic": "coalesce(region, 'UNKNOWN')",
       "data_type": "string",
       "is_categorical": true,
       "categories": [
@@ -99,11 +84,11 @@
     },
     {
       "source_table": "core_db.risk_assessment",
-      "source_column": "risk_score",
+      "source_column": "score",
       "target_table": "final_db.customer_summary",
       "target_column": "risk_score",
       "transformation_logic": "AVG(score)",
-      "data_type": "",
+      "data_type": "double",
       "is_categorical": false,
       "categories": []
     }
