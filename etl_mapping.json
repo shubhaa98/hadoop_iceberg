@@ -25,7 +25,7 @@
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_debit",
-      "transformation_logic": "SUM(n.total_debit)",
+      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'DEBIT' THEN u.amount ELSE 0 END)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -35,7 +35,7 @@
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_credit",
-      "transformation_logic": "SUM(n.total_credit)",
+      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'CREDIT' THEN u.amount ELSE 0 END)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -51,21 +51,27 @@
       "categories": []
     },
     {
-      "source_table": "core_db.segmation_rules",
+      "source_table": "core_db.segmentation_rules",
       "source_column": "segment_name",
       "target_table": "final_db.customer_summary",
       "target_column": "segment_name",
       "transformation_logic": "Direct mapping",
-      "data_type": "",
-      "is_categorical": false,
-      "categories": []
+      "data_type": "string",
+      "is_categorical": true,
+      "categories": [
+        "BRONZE",
+        "SILVER",
+        "GOLD",
+        "PLATINUM",
+        "UNKNOWN"
+      ]
     },
     {
       "source_table": "core_db.customer_region",
       "source_column": "region",
       "target_table": "final_db.customer_summary",
       "target_column": "region",
-      "transformation_logic": "Direct mapping",
+      "transformation_logic": "coalesce(r.region, 'UNKNOWN')",
       "data_type": "string",
       "is_categorical": true,
       "categories": [

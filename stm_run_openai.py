@@ -10,6 +10,11 @@ import csv
 import argparse
 from typing import List, Dict, Any
 from openai import OpenAI
+from pydantic import BaseModel
+from langchain_openai import ChatOpenAI
+from langchain.output_parsers import PydanticOutputParser
+from langchain.prompts import ChatPromptTemplate
+
 
 from dotenv import load_dotenv
 load_dotenv()  # this will read from .env automatically
@@ -20,6 +25,19 @@ if not api_key:
 
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 CATALOG_PATH = "catalog_schema.json"
+
+class Mapping(BaseModel):
+    source_table: str
+    source_column: str
+    target_table: str
+    target_column: str
+    transformation_logic: str
+    data_type: str = ""
+    is_categorical: bool = False
+    categories: List[str] = []
+
+class STMResult(BaseModel):
+    mappings: List[Mapping]
 
 SCHEMA = {
     "type": "object",
@@ -109,30 +127,47 @@ def enrich_with_catalog(mappings: List[Dict[str, Any]], catalog: Dict[str, Dict[
         m["categories"] = meta.get("categories", [])
     return mappings
 
-def extract_mappings_with_openai(etl_script: str, model: str = DEFAULT_MODEL) -> Dict[str, Any]:
-    client = OpenAI()
-    user_task = USER_TASK_TEMPLATE.format(etl_script=etl_script)
-    completion = client.chat.completions.create(
-        model=model,
-        messages=[
-            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
-            {"role": "user", "content": user_task},
-        ],
-        response_format={
-            "type": "json_schema",
-            "json_schema": {
-                "name": "etl_mappings",
-                "strict": True,
-                "schema": SCHEMA,
-            },
-        },
-        temperature=0,
-    )
-    raw_text = completion.choices[0].message.content
-    data = json.loads(raw_text)
-    if not isinstance(data, dict) or "mappings" not in data:
-        raise ValueError("Response JSON missing 'mappings' list.")
-    return data
+# def extract_mappings_with_openai(etl_script: str, model: str = DEFAULT_MODEL) -> Dict[str, Any]:
+#     client = OpenAI()
+#     user_task = USER_TASK_TEMPLATE.format(etl_script=etl_script)
+#     completion = client.chat.completions.create(
+#         model=model,
+#         messages=[
+#             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
+#             {"role": "user", "content": user_task},
+#         ],
+#         response_format={
+#             "type": "json_schema",
+#             "json_schema": {
+#                 "name": "etl_mappings",
+#                 "strict": True,
+#                 "schema": SCHEMA,
+#             },
+#         },
+#         temperature=0,
+#     )
+#     raw_text = completion.choices[0].message.content
+#     data = json.loads(raw_text)
+#     if not isinstance(data, dict) or "mappings" not in data:
+#         raise ValueError("Response JSON missing 'mappings' list.")
+#     return data
+
+def extract_mappings_with_openai(etl_script: str, model: str = DEFAULT_MODEL) -> STMResult:
+    parser = PydanticOutputParser(pydantic_object=STMResult)
+    llm = ChatOpenAI(model=model, temperature=0)
+
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", SYSTEM_INSTRUCTIONS),
+        ("user", USER_TASK_TEMPLATE + "\n\nReturn JSON that matches this schema:\n{format_instructions}")
+    ])
+
+    chain = prompt | llm | parser
+
+    return chain.invoke({
+        "etl_script": etl_script,
+        "format_instructions": parser.get_format_instructions()
+    })
+
 
 def main():
     parser = argparse.ArgumentParser(description="Extract and enrich ETL mappings using OpenAI.")
@@ -145,10 +180,18 @@ def main():
     print("Analyzing ETL script with OpenAI...")
     etl_script = read_text(args.etl)
     catalog = json.load(open(CATALOG_PATH, "r", encoding="utf-8"))
-    data = extract_mappings_with_openai(etl_script, model=args.model)
-    enriched = enrich_with_catalog(data["mappings"], catalog)
+    # data = extract_mappings_with_openai(etl_script, model=args.model)
+    # enriched = enrich_with_catalog(data["mappings"], catalog)
+    # save_json({"mappings": enriched}, args.json)
+    # save_csv(enriched, args.csv)
+    result: STMResult = extract_mappings_with_openai(etl_script, model=args.model)
+    # Convert to list of dicts for enrichment
+    enriched = enrich_with_catalog([m.dict() for m in result.mappings], catalog)
+
     save_json({"mappings": enriched}, args.json)
     save_csv(enriched, args.csv)
+
+
     print(f" Extraction and enrichment complete. Rows: {len(enriched)}")
 
 if __name__ == "__main__":
