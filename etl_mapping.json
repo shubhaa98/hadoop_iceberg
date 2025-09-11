@@ -21,26 +21,11 @@
       "categories": []
     },
     {
-      "source_table": "staging_db.account",
-      "source_column": "account_type",
-      "target_table": "final_db.customer_summary",
-      "target_column": "account_type",
-      "transformation_logic": "Direct mapping",
-      "data_type": "string",
-      "is_categorical": true,
-      "categories": [
-        "SAVINGS",
-        "CHECKING",
-        "CREDIT_CARD",
-        "LOAN"
-      ]
-    },
-    {
       "source_table": "staging_db.transaction",
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_debit",
-      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'DEBIT' THEN u.amount ELSE 0 END)",
+      "transformation_logic": "SUM(n.total_debit)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -50,7 +35,7 @@
       "source_column": "amount",
       "target_table": "final_db.customer_summary",
       "target_column": "total_credit",
-      "transformation_logic": "SUM(CASE WHEN u.txn_type = 'CREDIT' THEN u.amount ELSE 0 END)",
+      "transformation_logic": "SUM(n.total_credit)",
       "data_type": "decimal(18,2)",
       "is_categorical": false,
       "categories": []
@@ -66,27 +51,21 @@
       "categories": []
     },
     {
-      "source_table": "core_db.segmentation_rules",
+      "source_table": "core_db.segmation_rules",
       "source_column": "segment_name",
       "target_table": "final_db.customer_summary",
       "target_column": "segment_name",
       "transformation_logic": "Direct mapping",
-      "data_type": "string",
-      "is_categorical": true,
-      "categories": [
-        "BRONZE",
-        "SILVER",
-        "GOLD",
-        "PLATINUM",
-        "UNKNOWN"
-      ]
+      "data_type": "",
+      "is_categorical": false,
+      "categories": []
     },
     {
       "source_table": "core_db.customer_region",
       "source_column": "region",
       "target_table": "final_db.customer_summary",
       "target_column": "region",
-      "transformation_logic": "coalesce(r.region, 'UNKNOWN')",
+      "transformation_logic": "Direct mapping",
       "data_type": "string",
       "is_categorical": true,
       "categories": [
@@ -98,11 +77,111 @@
       ]
     },
     {
+      "source_table": "core_db.product_dim",
+      "source_column": "product_name",
+      "target_table": "final_db.customer_summary",
+      "target_column": "product_name",
+      "transformation_logic": "Direct mapping",
+      "data_type": "string",
+      "is_categorical": false,
+      "categories": []
+    },
+    {
+      "source_table": "core_db.product_dim",
+      "source_column": "product_category",
+      "target_table": "final_db.customer_summary",
+      "target_column": "product_category",
+      "transformation_logic": "Direct mapping",
+      "data_type": "string",
+      "is_categorical": true,
+      "categories": [
+        "DEPOSIT",
+        "CREDIT",
+        "LOAN",
+        "MORTGAGE"
+      ]
+    },
+    {
+      "source_table": "core_db.branch_dim",
+      "source_column": "branch_name",
+      "target_table": "final_db.customer_summary",
+      "target_column": "branch_name",
+      "transformation_logic": "Direct mapping",
+      "data_type": "string",
+      "is_categorical": false,
+      "categories": []
+    },
+    {
+      "source_table": "core_db.branch_dim",
+      "source_column": "branch_region",
+      "target_table": "final_db.customer_summary",
+      "target_column": "branch_region",
+      "transformation_logic": "Direct mapping",
+      "data_type": "string",
+      "is_categorical": true,
+      "categories": [
+        "NYC",
+        "NJ",
+        "CA",
+        "TX",
+        "UNKNOWN"
+      ]
+    },
+    {
+      "source_table": "core_db.merchant_dim",
+      "source_column": "merchant_category",
+      "target_table": "final_db.customer_summary",
+      "target_column": "merchant_category",
+      "transformation_logic": "Direct mapping",
+      "data_type": "string",
+      "is_categorical": true,
+      "categories": [
+        "GROCERY",
+        "DINING",
+        "ELECTRONICS",
+        "TRAVEL",
+        "OTHER"
+      ]
+    },
+    {
       "source_table": "core_db.risk_assessment",
       "source_column": "risk_score",
       "target_table": "final_db.customer_summary",
       "target_column": "risk_score",
       "transformation_logic": "AVG(score)",
+      "data_type": "",
+      "is_categorical": false,
+      "categories": []
+    },
+    {
+      "source_table": "core_db.credit_bureau",
+      "source_column": "external_credit_score",
+      "target_table": "final_db.customer_summary",
+      "target_column": "credit_score",
+      "transformation_logic": "MAX(n.external_credit_score)",
+      "data_type": "int",
+      "is_categorical": false,
+      "categories": []
+    },
+    {
+      "source_table": "core_db.fraud_flags",
+      "source_column": "fraud_flag",
+      "target_table": "final_db.customer_summary",
+      "target_column": "fraud_txn_count",
+      "transformation_logic": "SUM(CASE WHEN n.fraud_flag = 'Y' THEN 1 ELSE 0 END)",
+      "data_type": "string",
+      "is_categorical": true,
+      "categories": [
+        "Y",
+        "N"
+      ]
+    },
+    {
+      "source_table": "core_db.sanctions_list",
+      "source_column": "sanctions_hit",
+      "target_table": "final_db.customer_summary",
+      "target_column": "sanctions_match",
+      "transformation_logic": "MAX(n.sanctions_hit)",
       "data_type": "",
       "is_categorical": false,
       "categories": []

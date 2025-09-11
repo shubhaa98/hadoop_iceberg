@@ -12,12 +12,13 @@
     "load_date":    { "data_type": "date",   "is_categorical": false, "categories": [] }
   },
   "staging_db.transaction": {
-    "account_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] },
-    "txn_id":     { "data_type": "bigint",         "is_categorical": false, "categories": [] },
-    "amount":     { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
-    "txn_type":   { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
-    "txn_date":   { "data_type": "date",           "is_categorical": false, "categories": [] },
-    "load_date":  { "data_type": "date",           "is_categorical": false, "categories": [] }
+    "account_id":  { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "txn_id":      { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "amount":      { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
+    "txn_type":    { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
+    "txn_date":    { "data_type": "date",           "is_categorical": false, "categories": [] },
+    "merchant_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "load_date":   { "data_type": "date",           "is_categorical": false, "categories": [] }
   },
   "core_db.archived_customer": {
     "customer_id": { "data_type": "bigint", "is_categorical": false, "categories": [] },
@@ -30,11 +31,12 @@
     "customer_id":  { "data_type": "bigint", "is_categorical": false, "categories": [] }
   },
   "core_db.archived_transaction": {
-    "account_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] },
-    "txn_id":     { "data_type": "bigint",         "is_categorical": false, "categories": [] },
-    "amount":     { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
-    "txn_type":   { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
-    "txn_date":   { "data_type": "date",           "is_categorical": false, "categories": [] }
+    "account_id":  { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "txn_id":      { "data_type": "bigint",         "is_categorical": false, "categories": [] },
+    "amount":      { "data_type": "decimal(18,2)",  "is_categorical": false, "categories": [] },
+    "txn_type":    { "data_type": "string",         "is_categorical": true,  "categories": ["DEBIT", "CREDIT"] },
+    "txn_date":    { "data_type": "date",           "is_categorical": false, "categories": [] },
+    "merchant_id": { "data_type": "bigint",         "is_categorical": false, "categories": [] }
   },
   "core_db.segmentation_rules": {
     "customer_id":  { "data_type": "bigint", "is_categorical": false, "categories": [] },
@@ -50,14 +52,50 @@
     "score":       { "data_type": "double", "is_categorical": false, "categories": [] },
     "as_of_date":  { "data_type": "date",   "is_categorical": false, "categories": [] }
   },
+  "core_db.product_dim": {
+    "account_id":       { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "product_name":     { "data_type": "string", "is_categorical": false, "categories": [] },
+    "product_category": { "data_type": "string", "is_categorical": true,  "categories": ["DEPOSIT", "CREDIT", "LOAN", "MORTGAGE"] }
+  },
+  "core_db.branch_dim": {
+    "account_id":    { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "branch_name":   { "data_type": "string", "is_categorical": false, "categories": [] },
+    "branch_region": { "data_type": "string", "is_categorical": true,  "categories": ["NYC", "NJ", "CA", "TX", "UNKNOWN"] }
+  },
+  "core_db.merchant_dim": {
+    "merchant_id":       { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "merchant_category": { "data_type": "string", "is_categorical": true,  "categories": ["GROCERY", "DINING", "ELECTRONICS", "TRAVEL", "OTHER"] }
+  },
+  "core_db.fraud_flags": {
+    "txn_id":     { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "fraud_flag": { "data_type": "string", "is_categorical": true,  "categories": ["Y", "N"] },
+    "active_flag":{ "data_type": "string", "is_categorical": true,  "categories": ["Y", "N"] }
+  },
+  "core_db.credit_bureau": {
+    "customer_id":          { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "external_credit_score":{ "data_type": "int",    "is_categorical": false, "categories": [] },
+    "report_date":          { "data_type": "date",   "is_categorical": false, "categories": [] }
+  },
+  "core_db.sanctions_list": {
+    "customer_id": { "data_type": "bigint", "is_categorical": false, "categories": [] },
+    "blacklisted": { "data_type": "string", "is_categorical": true,  "categories": ["Y", "N"] }
+  },
   "final_db.customer_summary": {
-    "customer_id":    { "data_type": "bigint",        "is_categorical": false, "categories": [] },
-    "total_accounts": { "data_type": "bigint",        "is_categorical": false, "categories": [] },
-    "total_debit":    { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
-    "total_credit":   { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
-    "last_txn_date":  { "data_type": "date",          "is_categorical": false, "categories": [] },
-    "segment_name":   { "data_type": "string",        "is_categorical": true,  "categories": ["BRONZE", "SILVER", "GOLD", "PLATINUM", "UNKNOWN"] },
-    "region":         { "data_type": "string",        "is_categorical": true,  "categories": ["NORTHEAST", "MIDWEST", "SOUTH", "WEST", "UNKNOWN"] },
-    "risk_score":     { "data_type": "double",        "is_categorical": false, "categories": [] }
+    "customer_id":     { "data_type": "bigint",        "is_categorical": false, "categories": [] },
+    "total_accounts":  { "data_type": "bigint",        "is_categorical": false, "categories": [] },
+    "total_debit":     { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
+    "total_credit":    { "data_type": "decimal(18,2)", "is_categorical": false, "categories": [] },
+    "last_txn_date":   { "data_type": "date",          "is_categorical": false, "categories": [] },
+    "segment_name":    { "data_type": "string",        "is_categorical": true,  "categories": ["BRONZE", "SILVER", "GOLD", "PLATINUM", "UNKNOWN"] },
+    "region":          { "data_type": "string",        "is_categorical": true,  "categories": ["NORTHEAST", "MIDWEST", "SOUTH", "WEST", "UNKNOWN"] },
+    "product_name":    { "data_type": "string",        "is_categorical": false, "categories": [] },
+    "product_category":{ "data_type": "string",        "is_categorical": true,  "categories": ["DEPOSIT", "CREDIT", "LOAN", "MORTGAGE"] },
+    "branch_name":     { "data_type": "string",        "is_categorical": false, "categories": [] },
+    "branch_region":   { "data_type": "string",        "is_categorical": true,  "categories": ["NYC", "NJ", "CA", "TX", "UNKNOWN"] },
+    "merchant_category":{ "data_type": "string",       "is_categorical": true,  "categories": ["GROCERY", "DINING", "ELECTRONICS", "TRAVEL", "OTHER"] },
+    "risk_score":      { "data_type": "double",        "is_categorical": false, "categories": [] },
+    "credit_score":    { "data_type": "int",           "is_categorical": false, "categories": [] },
+    "fraud_txn_count": { "data_type": "bigint",        "is_categorical": false, "categories": [] },
+    "sanctions_match": { "data_type": "tinyint",       "is_categorical": true,  "categories": [0, 1] }
   }
 }

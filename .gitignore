@@ -1,0 +1,42 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*$py.class
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+# Environment variables
+*.env
+.env.*
+# OS-specific
+.DS_Store
+Thumbs.db
+# IDE & editor files
+.vscode/
+.idea/
+*.iml
+# Logs
+*.log
+# Build & dist
+build/
+dist/
+*.egg-info/
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+# Machine learning models
+*.pkl
+*.joblib
+*.h5
+# Docker
+docker-compose.override.yml
+# Google Cloud & deployment
+gcloud-config/
+.gcloudignore
+# Cache
+*.cache
+__cache__/

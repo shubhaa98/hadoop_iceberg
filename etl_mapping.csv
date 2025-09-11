@@ -1,10 +1,17 @@
 source_table,source_column,target_table,target_column,transformation_logic,data_type,is_categorical,categories
 staging_db.customer,customer_id,final_db.customer_summary,customer_id,Direct mapping,bigint,False,
 staging_db.account,account_id,final_db.customer_summary,total_accounts,COUNT(DISTINCT n.account_id),bigint,False,
-staging_db.account,account_type,final_db.customer_summary,account_type,Direct mapping,string,True,"SAVINGS, CHECKING, CREDIT_CARD, LOAN"
-staging_db.transaction,amount,final_db.customer_summary,total_debit,SUM(CASE WHEN u.txn_type = 'DEBIT' THEN u.amount ELSE 0 END),"decimal(18,2)",False,
-staging_db.transaction,amount,final_db.customer_summary,total_credit,SUM(CASE WHEN u.txn_type = 'CREDIT' THEN u.amount ELSE 0 END),"decimal(18,2)",False,
+staging_db.transaction,amount,final_db.customer_summary,total_debit,SUM(n.total_debit),"decimal(18,2)",False,
+staging_db.transaction,amount,final_db.customer_summary,total_credit,SUM(n.total_credit),"decimal(18,2)",False,
 staging_db.transaction,txn_date,final_db.customer_summary,last_txn_date,MAX(n.last_txn_date),date,False,
-core_db.segmentation_rules,segment_name,final_db.customer_summary,segment_name,Direct mapping,string,True,"BRONZE, SILVER, GOLD, PLATINUM, UNKNOWN"
-core_db.customer_region,region,final_db.customer_summary,region,"coalesce(r.region, 'UNKNOWN')",string,True,"NORTHEAST, MIDWEST, SOUTH, WEST, UNKNOWN"
+core_db.segmation_rules,segment_name,final_db.customer_summary,segment_name,Direct mapping,,False,
+core_db.customer_region,region,final_db.customer_summary,region,Direct mapping,string,True,"NORTHEAST, MIDWEST, SOUTH, WEST, UNKNOWN"
+core_db.product_dim,product_name,final_db.customer_summary,product_name,Direct mapping,string,False,
+core_db.product_dim,product_category,final_db.customer_summary,product_category,Direct mapping,string,True,"DEPOSIT, CREDIT, LOAN, MORTGAGE"
+core_db.branch_dim,branch_name,final_db.customer_summary,branch_name,Direct mapping,string,False,
+core_db.branch_dim,branch_region,final_db.customer_summary,branch_region,Direct mapping,string,True,"NYC, NJ, CA, TX, UNKNOWN"
+core_db.merchant_dim,merchant_category,final_db.customer_summary,merchant_category,Direct mapping,string,True,"GROCERY, DINING, ELECTRONICS, TRAVEL, OTHER"
 core_db.risk_assessment,risk_score,final_db.customer_summary,risk_score,AVG(score),,False,
+core_db.credit_bureau,external_credit_score,final_db.customer_summary,credit_score,MAX(n.external_credit_score),int,False,
+core_db.fraud_flags,fraud_flag,final_db.customer_summary,fraud_txn_count,SUM(CASE WHEN n.fraud_flag = 'Y' THEN 1 ELSE 0 END),string,True,"Y, N"
+core_db.sanctions_list,sanctions_hit,final_db.customer_summary,sanctions_match,MAX(n.sanctions_hit),,False,

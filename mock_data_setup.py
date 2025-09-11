@@ -1,5 +1,8 @@
 from pyspark.sql import SparkSession
 from datetime import datetime
+import os
+os.environ["JAVA_HOME"] = r"C:\Program Files\Eclipse Adoptium\jdk-11.0.28.6-hotspot"
+os.environ["PATH"] = os.path.join(os.environ["JAVA_HOME"], "bin") + ";" + os.environ["PATH"]
 
 # Initialize Spark
 # spark = SparkSession.builder.appName("Mock_Banking_Data_Setup").enableHiveSupport().getOrCreate()

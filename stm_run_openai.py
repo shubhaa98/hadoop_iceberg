@@ -11,6 +11,13 @@ import argparse
 from typing import List, Dict, Any
 from openai import OpenAI
 
+from dotenv import load_dotenv
+load_dotenv()  # this will read from .env automatically
+
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise EnvironmentError("OPENAI_API_KEY environment variable is not set.")
+
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 CATALOG_PATH = "catalog_schema.json"
 
@@ -54,8 +61,8 @@ Analyze the following PySpark ETL script and extract column-level mappings.
 
 Rules:
 - Only extract mappings for the final output table written via `saveAsTable` (e.g., final_db.customer_summary).
-- Ignore intermediate views like base_layer, union_layer, nested_layer unless they directly contribute to the final output.
-- For each target column, identify the source table and column(s) it is derived from.
+- Resolve lineage back to the **original base tables** (staging_db.* or core_db.*), not intermediate views like base_layer, union_layer, or nested_layer.
+- For each target column, identify the ultimate source table and column(s) it is derived from.
 - If a column is derived using expressions (e.g., CASE, COALESCE, SUM), include the exact SQL logic in `transformation_logic`.
 - Fully resolve table names using variables (e.g., stg_db.customer → staging_db.customer).
 - Output MUST match the JSON schema (no extra fields).

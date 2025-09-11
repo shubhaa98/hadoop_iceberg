@@ -53,7 +53,8 @@ df_union = spark.sql(f"""
         tx.txn_type,
         tx.txn_date,
         coalesce(c.segment, 'UNKNOWN') as segment,
-        '{load_date}' as load_date
+        '{load_date}' as load_date,
+        tx.merchant_id
     FROM {core_db}.archived_customer c
     INNER JOIN {core_db}.archived_account a
         ON c.customer_id = a.customer_id
@@ -75,12 +76,14 @@ df_nested = spark.sql(f"""
         seg.segment_name,
         coalesce(r.region, 'UNKNOWN') as region,
         MAX(u.txn_date) as last_txn_date,
-        -- New joins
         prod.product_name,
         prod.product_category,
         br.branch_name,
         br.branch_region,
-        merch.merchant_category
+        merch.merchant_category,
+        f.fraud_flag,
+        cb.external_credit_score,
+        s.sanctions_hit
     FROM union_layer u
     LEFT JOIN (
         SELECT DISTINCT customer_id, segment_name
@@ -107,12 +110,30 @@ df_nested = spark.sql(f"""
         SELECT merchant_id, merchant_category
         FROM {core_db}.merchant_dim
     ) merch
-        ON u.txn_id IS NOT NULL AND u.txn_id = merch.merchant_id
-    GROUP BY u.customer_id, u.account_id, u.account_type, 
-             seg.segment_name, r.region, 
-             prod.product_name, prod.product_category, 
-             br.branch_name, br.branch_region, 
-             merch.merchant_category
+        ON u.merchant_id = merch.merchant_id
+    LEFT JOIN (
+        SELECT DISTINCT txn_id, fraud_flag
+        FROM {core_db}.fraud_flags
+        WHERE active_flag = 'Y'
+    ) f
+        ON u.txn_id = f.txn_id
+    LEFT JOIN (
+        SELECT customer_id, external_credit_score
+        FROM {core_db}.credit_bureau
+        WHERE report_date = '{load_date}'
+    ) cb
+        ON u.customer_id = cb.customer_id
+    LEFT JOIN (
+        SELECT customer_id, CASE WHEN blacklisted = 'Y' THEN 1 ELSE 0 END AS sanctions_hit
+        FROM {core_db}.sanctions_list
+    ) s
+        ON u.customer_id = s.customer_id
+    GROUP BY u.customer_id, u.account_id, u.account_type,
+             seg.segment_name, r.region,
+             prod.product_name, prod.product_category,
+             br.branch_name, br.branch_region,
+             merch.merchant_category,
+             f.fraud_flag, cb.external_credit_score, s.sanctions_hit
 """)
 df_nested.createOrReplaceTempView("nested_layer")
 
@@ -131,7 +152,10 @@ df_final = spark.sql(f"""
         n.branch_name,
         n.branch_region,
         n.merchant_category,
-        risk.risk_score
+        risk.risk_score,
+        MAX(n.external_credit_score) as credit_score,
+        SUM(CASE WHEN n.fraud_flag = 'Y' THEN 1 ELSE 0 END) as fraud_txn_count,
+        MAX(n.sanctions_hit) as sanctions_match
     FROM nested_layer n
     LEFT JOIN (
         SELECT customer_id, AVG(score) as risk_score
